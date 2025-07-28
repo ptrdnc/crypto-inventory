@@ -14,10 +14,10 @@ Requirements:
 - The 'nmap' command-line tool must be installed and in your system's PATH.
 
 Usage:
-    python3 nmap_cipher_parser.py <ip_address> <port>
+    python3 acquire_tls_ciphers.py.py <ip_address> <port>
 
 Example:
-    python3 nmap_cipher_parser.py 1.1.1.1 443
+    python3 acquire_tls_ciphers.py.py 1.1.1.1 443
 """
 
 import argparse
@@ -50,6 +50,7 @@ def run_nmap_scan(ip_address: str, port: str) -> str:
     # --script ssl-enum-ciphers: Run the script to enumerate ciphers
     # -p: Specify the port
     # -oX -: Output in XML format to stdout
+    # TODO modify to use ip range
     command = [
         "nmap",
         "-sV",

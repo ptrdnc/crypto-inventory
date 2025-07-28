@@ -8,18 +8,11 @@ import io
 def load_ciphers_table(db_path="tls_ciphers.db"):
     """
     Downloads the IANA TLS Cipher Suite registry and loads it into an SQLite database.
+    TODO: Have an existing source for the cipher suites in case the IANA site is down.
 
     This function fetches the latest CSV file of TLS cipher suites from IANA,
     parses it, and populates a specified SQLite database with the relevant data.
     The table will be named 'tls_cipher_suites' and will be dropped if it already exists.
-
-    Args:
-        db_path (str, optional): The file path for the SQLite database.
-                                 Defaults to "tls_ciphers.db".
-    
-    Raises:
-        requests.exceptions.RequestException: If the download from IANA fails.
-        sqlite3.Error: If a database-related error occurs.
     """
     # URL for the IANA TLS Cipher Suite registry CSV
     url = "https://www.iana.org/assignments/tls-parameters/tls-parameters-4.csv"
@@ -55,6 +48,7 @@ def load_ciphers_table(db_path="tls_ciphers.db"):
         ''')
 
         # Step 4: Prepare data and insert rows into the database
+        # csv fields: Value | Description (name) | DTLS-OK | Recommended | Reference | Comment
         # We extract the relevant columns: Value (idx 0), Description (idx 1), and Reference (idx 4)
         rows_to_insert = []
         for row in csv_data:
@@ -72,6 +66,4 @@ def load_ciphers_table(db_path="tls_ciphers.db"):
         )
         
         # The 'with' block automatically commits the transaction upon successful completion
-
-    print(f"✔️ Successfully loaded {len(rows_to_insert)} records into {db_path}")
-
+        print(f"✅ Successfully loaded {len(rows_to_insert)} cipher suites into the database '{db_path}'.")
