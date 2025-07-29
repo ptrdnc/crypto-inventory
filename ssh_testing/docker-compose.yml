@@ -1,0 +1,27 @@
+# docker-compose.yml
+# Defines the configuration for running the SSH server container.
+
+version: '3.8'
+
+services:
+  # The name of our SSH server service
+  sshd-server:
+    # Specifies that the image should be built from a Dockerfile
+    build:
+      # The build context is the 'remote' directory
+      context: ./remote
+      # Build-time variables that can be passed to the Dockerfile
+      args:
+        # The PUBLIC_KEY argument will be populated from an environment
+        # variable on the host machine when you run the build command.
+        - PUBLIC_KEY
+    # The name of the container that will be created
+    container_name: remote-ssh-server
+    # Maps port 2222 on the host machine to port 22 inside the container.
+    # This allows you to connect via `ssh -p 2222 ...`
+    ports:
+      - "2222:22"
+    # Ensures the container restarts automatically if it stops, unless
+    # it was manually stopped.
+    restart: unless-stopped
+
