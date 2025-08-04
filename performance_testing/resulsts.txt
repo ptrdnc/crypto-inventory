@@ -1,0 +1,23 @@
+--- Final Performance Report ---
+Chunk Size: 200   -> Time: 67.07 seconds
+Chunk Size: 400   -> Time: 67.57 seconds
+Chunk Size: 350   -> Time: 67.70 seconds
+Chunk Size: 450   -> Time: 68.87 seconds
+Chunk Size: 500   -> Time: 69.30 seconds
+Chunk Size: 300   -> Time: 69.35 seconds
+Chunk Size: 250   -> Time: 72.30 seconds
+------------------------------
+🏆 Fastest scan was with chunk size: 200
+
+--- Final Performance Report ---
+Chunk Size: 200   -> Time: 67.94 seconds
+Chunk Size: 1000  -> Time: 71.24 seconds
+Chunk Size: 500   -> Time: 71.26 seconds
+Chunk Size: 1500  -> Time: 72.64 seconds
+Chunk Size: 2000  -> Time: 79.76 seconds
+Chunk Size: 3000  -> Time: 79.84 seconds
+Chunk Size: 2500  -> Time: 81.00 seconds
+Chunk Size: 3500  -> Time: 85.10 seconds
+Chunk Size: 4500  -> Time: 105.33 seconds
+Chunk Size: 5000  -> Time: 106.02 seconds
+Chunk Size: 4000  -> Time: 106.32 seconds

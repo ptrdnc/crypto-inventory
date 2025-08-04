@@ -2,15 +2,15 @@
 
 ## End goal 
 - crypto network map
-- all ellyptic curves all rsa keys
+- all elliptic curves all rsa keys
 - all post quantum
 - map ip address -> cipher
 - log files continuously but we want a database
 - open port scanning (active)
 - passive port scanning (sniffing)
 - grabbing headers
-- identifying cryptographis
-- database for reporting
+- identifying cryptographies
+- database for reportin
 - GUI
 - multithreading
 
@@ -23,3 +23,4 @@
 - similar for ssh and other protocols but there might be an unified view
 - another view is a list of all keys
 
+[img](./exec_flow.png)
